@@ -21,12 +21,11 @@ class bcolors:
 GITHUB_USERNAME = os.getenv("GITHUB_USERNAME")
 TOKEN = os.getenv("GITHUB_TOKEN")
 PROJECT_HOME = os.getenv("GITHUB_PROJECT_HOME")
-README_TEMPLATE = """
-# PROJECT_NAME
+README_TEMPLATE = """# PROJECT_NAME
 
 Description of project
 
-## Installation
+## Getting Started
 
 ```bash
 ```

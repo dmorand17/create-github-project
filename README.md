@@ -6,7 +6,7 @@ Automated way to create a local project.
 2. Create github repo
 3. Initialize the local project
 
-## Installation
+## Getting Started
 Installation adds a `create-github-project` symbolic link in `${HOME}/.local/bin`
 
 ```bash
