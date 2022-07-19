@@ -42,8 +42,7 @@ def run(cmd_lst, **kwargs):
     subprocess.run(cmd_lst, **kwargs)
     print()
 
-
-def create(project_name):
+def create_directory(project_name):
     p = Path(PROJECT_HOME)
     if not p.is_dir():
         sys.exit(f"{PROJECT_HOME} was not found, check directory exists.")
@@ -57,9 +56,12 @@ def create(project_name):
     curr_dir = os.getcwd()
     os.chdir(project_dir)
     print(
-        f">>> Changed working directory \nold: '{curr_dir}', new: '{project_dir}'\n"
+        f">>> Changed working directory \nold: '{curr_dir}', new: '{os.getcwd()}'\n"
     )
 
+    return project_dir
+
+def create_github_repository(project_dir, project_name):
     user = Github(TOKEN).get_user()
     # Check if repo already exists
     try:
@@ -73,11 +75,8 @@ def create(project_name):
     print(f">>> Created {project_name} in github!")
     print(f">>> url: {repo.html_url}, default_branch: {repo.default_branch}\n")
 
-    (project_dir / "README.md").write_text(README_TEMPLATE)
-    init_local_repo(project_dir, project_name)
-
-
 def init_local_repo(project_dir, project_name):
+    (project_dir / "README.md").write_text(README_TEMPLATE)
     print(">>> Initializing local git repository")
     run(("git", "init"), check=True)
 
@@ -102,6 +101,13 @@ def init_local_repo(project_dir, project_name):
     print(">>> Setting upstream")
     run(("git", "branch", "--set-upstream-to=origin/main", "main"), check=True)
 
+def init_and_create(project_name):
+    project_dir = create_directory(project_name)
+    create_github_repository(project_dir, project_name)
+    init_local_repo(project_dir, project_name)
+
+    return project_dir
+
 
 if __name__ == "__main__":
     if not len(sys.argv) > 1:
@@ -114,6 +120,10 @@ if __name__ == "__main__":
             f"Invalid project name: '{project_name}'\nProject names should NOT contain spaces."
         )
     else:
-        create(project_name)
-
-    print(f"{bcolors.OK}Finished!{bcolors.RESET}")
+        project_dir = None
+        try:
+            project_dir = init_and_create(project_name)
+        finally:
+            if project_dir:
+                print(f"COMMAND: `cd {project_dir}` to begin!")
+                print(f"{bcolors.OK}🎉 Finished!{bcolors.RESET}")
