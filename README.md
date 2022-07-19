@@ -1,6 +1,6 @@
 # create-github-project
 
-Automated way to create a local project.
+Automated way to create a local project.  Inspired by [KalleHallden/ProjectInitializationAutomation](https://github.com/KalleHallden/ProjectInitializationAutomation)
 
 1. Create local project
 2. Create github repo
