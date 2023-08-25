@@ -9,4 +9,4 @@ SCRIPT_DIR=$(dirname $(realpath $0))
 pushd $SCRIPT_DIR &>/dev/null
 
 source .venv/bin/activate
-./create.py $*
+./create_github_project/main.py $*
