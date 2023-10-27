@@ -32,16 +32,6 @@ README_TEMPLATE = """# PROJECT_NAME
 ...
 ```
 
-## Installation
-
-Installation notes
-
-## Usage
-
-```bash
-...
-```
-
 ## Development
 
 Development notes here
@@ -49,9 +39,16 @@ Development notes here
 Create and launch virtual environment
 
 ```bash
+# Create virtual environment
 python3 -m venv .venv
+
+# Activate virtual environment
 source .venv/bin/activate
 ```
+
+## License
+
+This library is licensed under the MIT-0 License. See the LICENSE file.
 """
 
 
