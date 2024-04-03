@@ -33,19 +33,20 @@ Modify variables
 - **GITHUB_PROJECT_HOME**:
 
 _Example_
+
+```
 GITHUB_USERNAME=some_github_username
 GITHUB_TOKEN=github_pat_redacted
-GITHUB_PROJECT_HOME=
-
+GITHUB_PROJECT_HOME=/Users/username/workspace
 ```
 
-```
+````
 
 ## Usage
 
 ```bash
 create-github-project <name>
-```
+````
 
 ## Development
 
