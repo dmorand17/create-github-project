@@ -10,7 +10,7 @@ Automated way to create a local project. Inspired by [KalleHallden/ProjectInitia
 
 - Python3
 
-## Getting Started
+## 🏁 Getting Started
 
 1/ Install create-github-project
 
@@ -40,15 +40,13 @@ GITHUB_TOKEN=github_pat_redacted
 GITHUB_PROJECT_HOME=/Users/username/workspace
 ```
 
-````
-
-## Usage
+## 🚀 Usage
 
 ```bash
 create-github-project <name>
-````
+```
 
-## Development
+## 🛠️ Development
 
 Create and launch virtual environment
 
@@ -57,6 +55,6 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-## TODO
+## 📌 TODO
 
 - Create project specific README (e.g. Python, typescript, rust, bash)
